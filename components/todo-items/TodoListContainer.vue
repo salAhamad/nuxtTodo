@@ -21,7 +21,7 @@
         <TodoList />
       </div>
     </div>
-    <AddNewList v-if="popupToggle" :function="addNewPopup" />
+    <AddNewList ref="child" v-if="popupToggle" @closeModal="popupToggle = $event" />
   </div>
 </template>
 
@@ -42,9 +42,7 @@ export default {
     };
   },
   methods: {
-    addNewPopup() {
-      this.popupToggle = !this.popupToggle;
-    }
+    addNewPopup() { return this.popupToggle = !this.popupToggle; },
   },
   components: { TodoList, AddNewList }
 }

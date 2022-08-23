@@ -1,5 +1,4 @@
 export const state = () => ({
-  popupToggle: false,
   todoLists: [
     {
       task: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, accusamus!',
@@ -10,7 +9,5 @@ export const state = () => ({
 });
 
 export const mutations = () => ({
-  POPUP_TOGGLE(state, payload) {
-    state.popupToggle = payload;
-  }
+
 })

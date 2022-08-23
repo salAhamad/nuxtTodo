@@ -3,7 +3,7 @@
     <div class="add-new-todo-list-container">
       <div class="__header [ d-flex justify-content-between align-items-center ]">
         <h4 class="m-0 text-primary fw-bolder">Add New</h4>
-        <span class="closeButton" @click.prevent="addNewPopup">×</span>
+        <span class="closeButton" @click.prevent="closePopup">×</span>
       </div>
       <div class="__body">
         <form>
@@ -53,6 +53,8 @@
 </template>
 
 <script>
+import { emit } from 'process';
+
 export default {
   name: 'addNewList',
   data() {
@@ -63,6 +65,7 @@ export default {
       contnetError: false,
       dateError: false,
       timeError: false,
+      disablePopup: false,
     }
   },
   props: [ 'addNewPopup' ],
@@ -92,6 +95,9 @@ export default {
       this.formValidate()
       console.log(this.content, this.date, this.time)
     },
+    closePopup(event) {
+      this.$emit('closeModal', this.disablePopup);
+    }
   }
 }
 </script>
